@@ -47,22 +47,6 @@ app.listen(port, () => {
 });
 
 
-// 
-app.get(`/tasks/:id`, (req, res) => {
-  db.query(`SELECT * FROM tache WHERE idTache = ${req.params.id}`, (err, results) => {//selection tout de tache où idtache vaut (identifiant URL)
-    if(err){
-        res.status(500).send(err);
-    }else {
-        res.json(results);
-    }
-  });
-});
-app.listen(port, () => {
-console.log(`Example app listening on port ${port}`);
-})
-
-
-
 app.get(`/tasks/status/:id`, (req, res) => {
   let id = req.params.id;
   db.query(
