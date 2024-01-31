@@ -20,7 +20,7 @@ db.connect((err) => {
   }
   console.log("connecté à la base de données");
 });
-
+// selectionne toute les taches
 app.get("/tasks", (req, res) => {
   db.query("SELECT * FROM tache", (err, results) => {
     if (err) {
@@ -30,7 +30,7 @@ app.get("/tasks", (req, res) => {
     }
   });
 });
-
+// selectionne une tache en rapport à son id
 app.get(`/tasks/:id`, (req, res) => {
   let id = req.params.id;
   db.query(`SELECT * FROM tache WHERE idTache = ${id}`, (err, results) => {
