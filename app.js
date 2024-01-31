@@ -46,7 +46,7 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-
+// selectionne les taches en rapport à leur status
 app.get(`/tasks/status/:id`, (req, res) => {
   let id = req.params.id;
   db.query(
