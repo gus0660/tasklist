@@ -59,7 +59,7 @@ app.get(`/tasks/status/:id`, (req, res) => {
     }
   );
 });
-// selectionne tout les taches archivées avec leurs titres et la date d'archivage
+// selectionne tout les taches archivées avec leurs titres et la date d'archivage( A RECTIFIER !!)
 app.get("/archived", (req, res) => {
   db.query("SELECT * FROM taskTitle, archivedat FROM tache JOIN archivedtache ON idTache = tache_idTache", (err, results) => {
     if (err) {
