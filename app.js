@@ -60,3 +60,12 @@ app.get(`/tasks/status/:id`, (req, res) => {
   );
 });
 // selectionne tout les taches archivées avec leurs titres et la date d'archivage
+app.get("/tasks", (req, res) => {
+  db.query("SELECT * FROM tache", (err, results) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.json(results);
+    }
+  });
+});
