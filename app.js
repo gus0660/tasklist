@@ -50,7 +50,7 @@ app.listen(port, () => {
 app.get(`/tasks/status/:id`, (req, res) => {
   let id = req.params.id;
   db.query(
-    `SELECT tacheTitre, tacheContent FROM tache JOIN status ON idstatus = status_idstatus WHERE idstatus = ${id}`,
+    `SELECT tacheTitre, tacheContent FROM tache WHERE status_idstatus = ${id}`,
     (err, results) => {
       if (err) {
         res.status(500).send(err);
