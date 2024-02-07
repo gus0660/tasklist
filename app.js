@@ -109,11 +109,15 @@ app.delete("/tache", (req, res) => {
 
 // reponse de CHATGPT
 
-// Dans votre code, vous avez défini une route DELETE à l'URL /tache, mais vous essayez d'extraire des paramètres de la requête en utilisant req.params, ce qui est incorrect pour une requête DELETE.
+// Dans votre code, vous avez défini une route DELETE à l'URL /tache, mais vous essayez d'extraire des paramètres de la requête 
+// en utilisant req.params, ce qui est incorrect pour une requête DELETE.
 
-// Lorsque vous définissez une route comme app.delete("/tache", ...), cela signifie que vous attendez une requête DELETE à l'URL /tache, mais vous n'avez pas défini de paramètres dans cette route.
+// Lorsque vous définissez une route comme app.delete("/tache", ...), cela signifie que vous attendez une requête DELETE à l'URL /tache,
+//  mais vous n'avez pas défini de paramètres dans cette route.
 
-// Pour supprimer la dernière tâche que vous avez envoyée, vous devez envoyer l'identifiant de la tâche à supprimer dans le corps de la requête DELETE ou dans les paramètres de l'URL. Ensuite, vous pouvez extraire cet identifiant de la requête et l'utiliser dans votre requête SQL pour supprimer la tâche correspondante.
+// Pour supprimer la dernière tâche que vous avez envoyée, vous devez envoyer l'identifiant de la tâche à supprimer dans le corps de la 
+// requête DELETE ou dans les paramètres de l'URL. Ensuite, vous pouvez extraire cet identifiant de la requête et l'utiliser dans votre 
+// requête SQL pour supprimer la tâche correspondante.
 
 // Voici comment vous pouvez le faire en utilisant les paramètres de l'URL :
 
@@ -130,4 +134,7 @@ app.delete("/tache", (req, res) => {
   // });
 // });
 
-// Avec cette modification, vous devez envoyer une requête DELETE à l'URL /tache/123, par exemple, où 123 est l'identifiant de la tâche que vous souhaitez supprimer. Ensuite, req.params.id sera égal à 123, et vous pouvez l'utiliser pour supprimer la tâche correspondante de votre base de données. Assurez-vous également que le nom de la colonne dans votre table de base de données correspond à idTache si c'est celui que vous utilisez dans votre requête DELETE.
+// Avec cette modification, vous devez envoyer une requête DELETE à l'URL /tache/123, par exemple, où 123 est l'identifiant de la 
+// tâche que vous souhaitez supprimer. Ensuite, req.params.id sera égal à 123, et vous pouvez l'utiliser pour supprimer la tâche 
+// correspondante de votre base de données. Assurez-vous également que le nom de la colonne dans votre table de base de données 
+// correspond à idTache si c'est celui que vous utilisez dans votre requête DELETE.
