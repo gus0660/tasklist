@@ -75,5 +75,6 @@ app.get("/archivetache", (req, res) => {
 app.post('/tache', (req, res) => {//dans ma table (database) je demande une request"req" et une reponse"res" je recois la "req" 
   const { tacheTitre, tacheContent } = req.body;//création de variable {tacheTitre et tacheContent} que je dois aller cherché dans le body de la request "req"? ENTRE {} veut dire que je veut du "json" et dans celui-ci je veu "tacheTitre et tacheContent"
   const status_idStatus = 2;//creation de variable"status_idStatus" et qui établit la valeur par défaut "2" qui correspond à "à faire" dans la table "status"
-  const isFinished = 0;
+  const isFinished = 0;//création de la constante "isFinished" définie par défaut à 0
+  const jePost = "INSERT INTO `tache` (`tacheTitre`, `tacheContent`, `tacheDate`, `isFinished`, `status_idStatus`) VALUE (?, ?, NOW(), ?, ?)"
 })
