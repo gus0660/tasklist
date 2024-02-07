@@ -21,7 +21,7 @@ db.connect((err) => {
   console.log("connecté à la base de données");
 });
 // selectionne toute les taches
-app.get("/tasks", (req, res) => {
+app.get("/tache", (req, res) => {
   db.query("SELECT * FROM tache", (err, results) => {
     if (err) {
       res.status(500).send(err);
@@ -31,7 +31,7 @@ app.get("/tasks", (req, res) => {
   });
 });
 // selectionne une tache en rapport à son id
-app.get(`/tasks/:id`, (req, res) => {
+app.get(`/tache/:id`, (req, res) => {
   let id = req.params.id;
   db.query(`SELECT * FROM tache WHERE idTache = ${id}`, (err, results) => {
     if (err) {
@@ -46,7 +46,7 @@ app.listen(port, () => {
 });
 
 // selectionne les taches en rapport à leur status (idstatus)
-app.get(`/tasks/status/:id`, (req, res) => {
+app.get(`/tache/status/:id`, (req, res) => {
   let id = req.params.id;
   db.query(
     `SELECT tacheTitre, tacheContent, labelStatus FROM tache JOIN status ON idstatus = status_idstatus WHERE idstatus = ${id}`,
@@ -61,20 +61,37 @@ app.get(`/tasks/status/:id`, (req, res) => {
 });
 // selectionne tout les taches archivées avec leurs titres et la date d'archivage
 app.get("/archivetache", (req, res) => {
-    db.query("SELECT tacheTitre, archiveDate FROM archivetache JOIN tache ON idTache = Tache_idTache",(err,results) => {
-      
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.json(results);
+  db.query(
+    "SELECT tacheTitre, archiveDate FROM archivetache JOIN tache ON idTache = Tache_idTache",
+    (err, results) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.json(results);
+      }
     }
-  });
+  );
 });
 
 //je doit poster une nouvelle tache donc avec un titre et un descriptif qui doit être "à faire"
-app.post('/tache', (req, res) => {//dans ma table (database) je demande une request"req" et une reponse"res" je recois la "req" 
-  const { tacheTitre, tacheContent } = req.body;//création de variable {tacheTitre et tacheContent} que je dois aller cherché dans le body de la request "req"? ENTRE {} veut dire que je veut du "json" et dans celui-ci je veu "tacheTitre et tacheContent"
-  const status_idStatus = 2;//creation de variable"status_idStatus" et qui établit la valeur par défaut "2" qui correspond à "à faire" dans la table "status"
-  const isFinished = 0;//création de la constante "isFinished" définie par défaut à 0
-  const jePost = "INSERT INTO `tache` (`tacheTitre`, `tacheContent`, `tacheDate`, `isFinished`, `status_idStatus`) VALUE (?, ?, NOW(), ?, ?)"
-})
+app.post("/tache", (req, res) => {
+  //dans ma table (database) je demande une request"req" et une reponse"res" je recois la "req"
+  const { tacheTitre, tacheContent } = req.body; //création de variable {tacheTitre et tacheContent} que je dois aller cherché dans le body de la request "req"? ENTRE {} veut dire que je veut du "json" et dans celui-ci je veu "tacheTitre et tacheContent"
+  const status_idStatus = 2; //creation de variable"status_idStatus" et qui établit la valeur par défaut "2" qui correspond à "à faire" dans la table "status"
+  const isFinished = 0; //création de la constante "isFinished" définie par défaut à 0
+  const query =
+    "INSERT INTO `tache` (`tacheTitre`, `tacheContent`, `tacheDate`, `tacheFinished`, `status_idStatus`) VALUE (?, ?, NOW(), ?, ?)";
+  db.query(
+    query,
+    [tacheTitre, tacheContent, isFinished, status_idStatus],
+    (err, results) => {
+      if (err) {
+        res.status(500).json({ error: "Error adding the Task" });
+      } else {
+        res
+          .status(201)
+          .json({ message: "Task successfully added (OK ToutVaBien)" });
+      }
+    }
+  );
+});
