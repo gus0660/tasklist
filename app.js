@@ -61,7 +61,6 @@ app.get(`/tasks/status/:id`, (req, res) => {
 });
 // selectionne tout les taches archivées avec leurs titres et la date d'archivage
 app.get("/archivetache", (req, res) => {
-  // db.query("SELECT * FROM tacheTitre, archivedat JOIN archivedtache ON idTache = idarchive", (err, results) => {
     db.query("SELECT tacheTitre, archiveDate FROM archivetache JOIN tache ON idTache = Tache_idTache",(err,results) => {
       
     if (err) {
@@ -72,9 +71,10 @@ app.get("/archivetache", (req, res) => {
   });
 });
 
-//je doit poster une nouvelle tache donc avec un titre et un descriptif
-app.post('/tache', (req, res) => {//dans ma table (database) je demande une request"req" et une reponse"res"
+//je doit poster une nouvelle tache donc avec un titre et un descriptif qui doit être "à faire"
+app.post('/tache', (req, res) => {//dans ma table (database) je demande une request"req" et une reponse"res" je recois la "req" 
   const { tacheTitre, tacheContent } = req.body;//création de variable "tacheTitre et tacheContent" que je dois aller cherché dans le body de la request "req"
+  // 
   const status_idStatus = 2;//creation de variable"status_idStatus" et qui établit la valeur par défaut "2" qui correspond à "à faire" dans la table "status"
   const isFinished = 0;
 })
