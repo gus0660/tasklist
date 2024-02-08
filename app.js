@@ -96,9 +96,9 @@ app.post("/tache", (req, res) => {
   );
 });
 //  je veu supprimer une tache, par exemple la derniere que j'ai envoyé
-app.delete("/tache", (req, res) => {
-  const suprim = req.params;
-  db.query(`DELETE FROM tache WHERE idstatus = ${suprim}`, (err,results) => {
+app.delete("/tache/:id", (req, res) => {
+  const suprim = req.params.id;
+  db.query(`DELETE FROM tache WHERE idTache = ${suprim}`, (err,results) => {
     if (err) {
       res.status(500).send(err);
     } else {
