@@ -111,17 +111,13 @@ app.delete("/tache/:id", (req, res) => {
 
 // Dans votre code, vous avez défini une route DELETE à l'URL /tache, mais vous essayez d'extraire des paramètres de la requête 
 // en utilisant req.params, ce qui est incorrect pour une requête DELETE.
-
 // Lorsque vous définissez une route comme app.delete("/tache", ...), cela signifie que vous attendez une requête DELETE à l'URL /tache,
 //  mais vous n'avez pas défini de paramètres dans cette route.
-
 // Pour supprimer la dernière tâche que vous avez envoyée, vous devez envoyer l'identifiant de la tâche à supprimer dans le corps de la 
 // requête DELETE ou dans les paramètres de l'URL. Ensuite, vous pouvez extraire cet identifiant de la requête et l'utiliser dans votre 
 // requête SQL pour supprimer la tâche correspondante.
 
 // Voici comment vous pouvez le faire en utilisant les paramètres de l'URL :
-
-// javascript
 
 // app.delete("/tache/:id", (req, res) => {
   // const idTache = req.params.id;
