@@ -26,4 +26,9 @@ function ajouTache() {
 fetch("http://localhost:3000/tache")
 // quand tu as fini(.then) la réponse(response) je fait(=>) une response en json(response.json)
   .then((response) => response.json())
-  .then((response) => console.log(response))
+  //1) Parcourir les tâches récupérées
+  //2) Créer un élément div pour chaque tâche
+  //3) Créer des éléments pour afficher les détails de la tâche
+  //4) Ajouter les éléments à la div de la tâche
+  //5) Ajouter la div de la tâche à la div des tâches
+//   .then((response) => console.log(response))
