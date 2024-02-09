@@ -1,19 +1,29 @@
-
 // fonction pour afficher une nouvelle tache rentrée dans le input et l'afficher dans le html..ne fonctionne pas pour l'instant
 
-// document.addEventListener('submit', () => {
-//     function ajouTache () {
-//     const àFaire = document.querySelector("#taskTitle").value;
-//     let newDiv = document.createElement("div");
-//     newDiv.classList.add("newTache");
-//     newDiv.textContent = àFaire;
-//     const zoneReponse = document.querySelector("tasks");
-//     zoneReponse.appendChild.àFaire;
-// }
-// })
+const formEL = document.querySelector("#taskForm");
+formEL.addEventListener("submit", (event) => {
+  event.preventDefault();
+  ajouTache();
+});
+
+function ajouTache() {
+  const titreAfaire = document.querySelector("#taskTitle").value;
+  const contentAfaire = document.querySelector("#taskContent").value;
+  const zoneReponse = document.querySelector("#tasks");
+  let newDiv = document.createElement("div");
+  let newHtrois = document.createElement("h3");
+  let newP = document.createElement("p");
+  newDiv.classList.add("newTache");
+  newHtrois.textContent = titreAfaire;
+  newP.textContent = contentAfaire;
+  newDiv.appendChild(newHtrois);
+  newDiv.appendChild(newP);
+  zoneReponse.appendChild(newDiv);
+}
 
 // je veu aller chercher les taches qui sont dans la base de données et les afficher dans le html
-
-fetch("http://localhost:3000/tache")
-.then(response => response.json())
-.then(body => console.log(body))
+// connection à la base de données avec un fetch
+// fetch("http://localhost:3000/tache")
+// la réponse(response) j'en fait(.then) une response en json(response.json)
+//   .then((response) => response.json())
+//   .then((body) => console.log(body))
