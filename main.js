@@ -23,7 +23,7 @@ function ajouTache() {
 
 // je veu aller chercher les taches qui sont dans la base de données et les afficher dans le html
 // connection à la base de données avec un fetch
-// fetch("http://localhost:3000/tache")
-// la réponse(response) j'en fait(.then) une response en json(response.json)
-//   .then((response) => response.json())
-//   .then((body) => console.log(body))
+fetch("http://localhost:3000/tache")
+// quand tu as fini(.then) la réponse(response) je fait(=>) une response en json(response.json)
+  .then((response) => response.json())
+  .then((response) => console.log(response))
