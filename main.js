@@ -5,6 +5,6 @@ fetch("http://localhost:3000/tache")
 
 
 function ajouTache () {
-    const àFaire = document.querySelector("#taskTitle");
+    const àFaire = document.querySelector("#taskTitle").value;
 
 }
