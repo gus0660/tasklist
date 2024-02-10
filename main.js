@@ -13,6 +13,10 @@ function ajouTache() {
   const titreAfaire = document.querySelector("#taskTitle").value;
   const contentAfaire = document.querySelector("#taskContent").value;
   let newDiv = document.createElement("div");
+  newDiv.style.border = "1px solid black";
+  newDiv.style.borderRadius = "10px"; // Ajout du border-radius
+  newDiv.style.margin = "10px"; // Ajout du margin
+  newDiv.style.backgroundColor = "#42ecf5";
   let newHtrois = document.createElement("h3");
   let newP = document.createElement("p");
   newDiv.classList.add("newTache");
@@ -39,6 +43,7 @@ function loadTache() {
         newDiv.style.border = "1px solid black";
         newDiv.style.borderRadius = "10px"; // Ajout du border-radius
         newDiv.style.margin = "10px"; // Ajout du margin
+        newDiv.style.backgroundColor = "#42ecf5";
         const newHtrois = document.createElement("h3");
         const newP = document.createElement("p");
         newHtrois.textContent = tache.tacheTitre;
