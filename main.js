@@ -25,10 +25,10 @@ formEL.addEventListener("submit", (event) => {
 // }
 
 loadTache();
-const todoEl = document.querySelector("#tasks");
+
 // je veu aller chercher les taches qui sont dans la base de données et les afficher dans le html
 // pour cela je dois faire une fonction "loadTache" qui va aller chercher les taches dans la Base de Données
-// const zoneRep = document.querySelector("#taskForm")
+const todoEl = document.querySelector("#tasks");
 function loadTache() {
   // connection à la base de données avec un fetch
   const url = "http://localhost:3000/tache";
@@ -57,17 +57,7 @@ function loadTache() {
 // .catch((error) => alert("erreur : " + error));
 
 //1) quand tu as fini tu met en place une fonction "viewTache"
-function viewTache(response) {
-  response.forEach((tache) => {
-    const newDiv = document.createElement("div");
-    const newHtrois = document.createElement("h3");
-    const newP = document.createElement("p");
-    newDiv.appendChild(newHtrois, newP);
-    newHtrois.textContent = tache.tacheTitre;
-    newP.textContent = tache.tacheContent;
-    todoEl.appendChild(newDiv);
-  });
-}
+
 // .then(affichTache => {
 // const zoneReponse = document.querySelector("#tasks");
 //2) Parcourir les tâches récupérées
