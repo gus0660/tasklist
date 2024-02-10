@@ -5,7 +5,7 @@
 const formEL = document.querySelector("#taskForm");
 formEL.addEventListener("submit", (event) => {
   event.preventDefault();
-  ajouTache();
+  loadTache();
 });
 
 // function ajouTache() {
