@@ -24,8 +24,8 @@ formEL.addEventListener("submit", (event) => {
 //   zoneReponse.appendChild(newDiv);
 // }
 
-loadTache()
-const todoEl = document.querySelector("#tasks")
+loadTache();
+const todoEl = document.querySelector("#tasks");
 // je veu aller chercher les taches qui sont dans la base de données et les afficher dans le html
 // pour cela je dois faire une fonction "loadTache" qui va aller chercher les taches dans la Base de Données
 // const zoneRep = document.querySelector("#taskForm")
@@ -33,45 +33,38 @@ function loadTache() {
   // connection à la base de données avec un fetch
   const url = "http://localhost:3000/tache";
   fetch(url)
-  .then((response) => response.json())
-  .then(response => {
-    response.forEach(tache => {
-      const divEl = document.createElement("div")
-      const h3El = document.createElement("h3")
-      const pEl = document.createElement("p")
-      h3El.textContent = tache.tacheTitre
-      pEl.textContent = tache.tacheContent
-      divEl.appendChild(h3El,pEl)
-      todoEl.appendChild(divEl)
+    .then((response) => response.json())
+    .then((response) => {
+      response.forEach((tache) => {
+        const divEl = document.createElement("div");
+        const h3El = document.createElement("h3");
+        const pEl = document.createElement("p");
+        h3El.textContent = tache.tacheTitre;
+        pEl.textContent = tache.tacheContent;
+        divEl.appendChild(h3El, pEl);
+        todoEl.appendChild(divEl);
 
-
-      console.log(tache.tacheContent)
-    })
-    
-    
-  //  .then(data => console.log(response.tacheTitre))
-    })
-  }
-    // quand tu as fini(.then) la réponse(response) ensuite tu me fait une fonction(=>) une response en json(response.json)
-    // 
-    // quand tu as fini(.then) cette response, ensuite tu me fait une fonction(=>) la fonction viewTache de response que je vais concevoir après
-    // .then((response) => viewTache(response))
-    // tu "catch" l'erreur(error) ensuite tu me fait une fonction alert avec le texte "erreur : " vuivi du code de error
-    // .catch((error) => alert("erreur : " + error));
-
+        console.log(tache.tacheContent);
+      });
+    });
+}
+// quand tu as fini(.then) la réponse(response) ensuite tu me fait une fonction(=>) une response en json(response.json)
+//
+// quand tu as fini(.then) cette response, ensuite tu me fait une fonction(=>) la fonction viewTache de response que je vais concevoir après
+// .then((response) => viewTache(response))
+// tu "catch" l'erreur(error) ensuite tu me fait une fonction alert avec le texte "erreur : " vuivi du code de error
+// .catch((error) => alert("erreur : " + error));
 
 //1) quand tu as fini tu met en place une fonction "viewTache"
 function viewTache(response) {
-  
-  response.forEach(tache => {
-  
-  const newDiv = document.createElement("div");
-  const newHtrois = document.createElement("h3");
-  const newP = document.createElement("p");
-  newDiv.appendChild(newHtrois,newP);
-  newHtrois.textContent = tache.tacheTitre;
-  newP.textContent = tache.tacheContent;
-  zoneRep.appendChild(newDiv);
+  response.forEach((tache) => {
+    const newDiv = document.createElement("div");
+    const newHtrois = document.createElement("h3");
+    const newP = document.createElement("p");
+    newDiv.appendChild(newHtrois, newP);
+    newHtrois.textContent = tache.tacheTitre;
+    newP.textContent = tache.tacheContent;
+    zoneRep.appendChild(newDiv);
   });
 }
 // .then(affichTache => {
