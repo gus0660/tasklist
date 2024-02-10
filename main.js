@@ -1,6 +1,6 @@
-// fonction pour afficher une nouvelle tache rentrée dans le input et l'afficher dans le html..ne fonctionne pas pour l'instant
+// fonction pour afficher une nouvelle tache rentrée dans le input et l'afficher dans le html
 
-// const { response } = require("express");
+// comme il faut commencer notre programme par une détection du click "submit", cela démarrera par un addEventListener au submit
 
 const formEL = document.querySelector("#taskForm");
 formEL.addEventListener("submit", (event) => {
