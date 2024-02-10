@@ -41,14 +41,14 @@ function loadTache(response) {
 //1) quand tu as fini tu met en place une fonction "viewTache"
 function viewTache(response) {
   
-  response.forEach(response => {
+  response.forEach(tache => {
   
   const newDiv = document.createElement("div");
   const newHtrois = document.createElement("h3");
   const newP = document.createElement("p");
   newDiv.appendChild(newHtrois,newP);
-  newHtrois.textContent = response.tacheTitre;
-  newP.textContent = response.tacheContent;
+  newHtrois.textContent = tache.tacheTitre;
+  newP.textContent = tache.tacheContent;
   zoneRep.appendChild(newDiv);
   });
 }
