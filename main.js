@@ -26,7 +26,7 @@ formEL.addEventListener("submit", (event) => {
 
 // je veu aller chercher les taches qui sont dans la base de données et les afficher dans le html
 // pour cela je dois faire une fonction "loadTache" qui va aller chercher les taches dans la Base de Données
-
+const zoneRep = document.querySelector("#taskForm")
 function loadTache(response) {
   // connection à la base de données avec un fetch
   fetch("http://localhost:3000/tache")
@@ -40,12 +40,12 @@ function loadTache(response) {
 
 //1) quand tu as fini tu met en place une fonction "viewTache"
 function viewTache(response) {
-  const zoneRep = document.querySelector("#taskForm")
+  
   response.forEach(task => {
   
-  let newDiv = document.createElement("div");
-  let newHtrois = document.createElement("h3");
-  let newP = document.createElement("p");
+  const newDiv = document.createElement("div");
+  const newHtrois = document.createElement("h3");
+  const newP = document.createElement("p");
   newDiv.appendChild(newHtrois,newP);
   newHtrois.textContent = task.tacheTitre;
   newP.textContent = task.tacheContent;
