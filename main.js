@@ -44,31 +44,10 @@ function loadTache() {
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
         newDiv.appendChild(newHtrois);
-        newDiv.appendChild(newP)
+        newDiv.appendChild(newP);
         zoneReponse.appendChild(newDiv);
 
         console.log(tache.tacheContent);
       });
     });
 }
-// quand tu as fini(.then) la réponse(response) ensuite tu me fait une fonction(=>) une response en json(response.json)
-//
-// quand tu as fini(.then) cette response, ensuite tu me fait une fonction(=>) la fonction viewTache de response que je vais concevoir après
-// .then((response) => viewTache(response))
-// tu "catch" l'erreur(error) ensuite tu me fait une fonction alert avec le texte "erreur : " vuivi du code de error
-// .catch((error) => alert("erreur : " + error));
-
-//1) quand tu as fini tu met en place une fonction "viewTache"
-
-// .then(affichTache => {
-// const zoneReponse = document.querySelector("#tasks");
-//2) Parcourir les tâches récupérées
-// response.forEach(element => {
-// let newDiv = document.createElement("div");
-// });
-// })
-
-//3) Créer un élément div pour chaque tâche
-//4) Créer des éléments pour afficher les détails de la tâche
-//5) Ajouter les éléments à la div de la tâche
-//6) Ajouter la div de la tâche à la div des tâches
