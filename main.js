@@ -24,7 +24,7 @@ formEL.addEventListener("submit", (event) => {
 // }
 
 // je veu aller chercher les taches qui sont dans la base de données et les afficher dans le html
-// pour cela je dois faire une fonction "loadTache"
+// pour cela je dois d'abord faire une fonction "loadTache" qui va aller chercher les taches dans la base de données
 function loadTache(response) {
 // connection à la base de données avec un fetch  
   fetch("http://localhost:3000/tache")
