@@ -28,11 +28,11 @@ formEL.addEventListener("submit", (event) => {
 function loadTache(response) {
 // connection à la base de données avec un fetch  
   fetch("http://localhost:3000/tache")
-  // quand tu as fini(.then) la réponse(response) ensuite tu me fait(=>) une response en json(response.json)
+  // quand tu as fini(.then) la réponse(response) ensuite tu me fait une fonction(=>) une response en json(response.json)
   .then((response) => response.json())
-  // quand tu as fini(.then) cette response, ensuite tu me fait(=>) la fonction viewTache de response que je vais concevoir après
+  // quand tu as fini(.then) cette response, ensuite tu me fait une fonction(=>) la fonction viewTache de response que je vais concevoir après
   .then(response => viewTache(response))
-  // tu "catch" l'erreur(error) ensuite tu me fait une alert avec le texte "erreur : " vuivi du code de error
+  // tu "catch" l'erreur(error) ensuite tu me fait une fonction alert avec le texte "erreur : " vuivi du code de error
   .catch(error => alert("erreur : " + error))
 }
 
