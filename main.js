@@ -25,7 +25,7 @@ function ajouTache() {
   newDiv.appendChild(newHtrois);
   newDiv.appendChild(newP);
   zoneReponse.appendChild(newDiv);
-}
+}//bon faut tout refaire pour envoyer la nouvelle tache dans la base de données
 
 loadTache();
 
