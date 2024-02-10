@@ -65,7 +65,7 @@ function viewTache(response) {
     newDiv.appendChild(newHtrois, newP);
     newHtrois.textContent = tache.tacheTitre;
     newP.textContent = tache.tacheContent;
-    zoneRep.appendChild(newDiv);
+    todoEl.appendChild(newDiv);
   });
 }
 // .then(affichTache => {
