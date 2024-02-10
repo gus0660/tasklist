@@ -6,29 +6,28 @@
 const formEL = document.querySelector("#taskForm");
 formEL.addEventListener("submit", (event) => {
   event.preventDefault();
-  loadTache();
+  ajouTache();
 });
 
-// function ajouTache() {
-//   const titreAfaire = document.querySelector("#taskTitle").value;
-//   const contentAfaire = document.querySelector("#taskContent").value;
-//   const zoneReponse = document.querySelector("#tasks");
-//   let newDiv = document.createElement("div");
-//   let newHtrois = document.createElement("h3");
-//   let newP = document.createElement("p");
-//   newDiv.classList.add("newTache");
-//   newHtrois.textContent = titreAfaire;
-//   newP.textContent = contentAfaire;
-//   newDiv.appendChild(newHtrois);
-//   newDiv.appendChild(newP);
-//   zoneReponse.appendChild(newDiv);
-// }
+function ajouTache() {
+  const titreAfaire = document.querySelector("#taskTitle").value;
+  const contentAfaire = document.querySelector("#taskContent").value;
+  let newDiv = document.createElement("div");
+  let newHtrois = document.createElement("h3");
+  let newP = document.createElement("p");
+  newDiv.classList.add("newTache");
+  newHtrois.textContent = titreAfaire;
+  newP.textContent = contentAfaire;
+  newDiv.appendChild(newHtrois);
+  newDiv.appendChild(newP);
+  zoneReponse.appendChild(newDiv);
+}
 
 loadTache();
 
 // je veu aller chercher les taches qui sont dans la base de données et les afficher dans le html
 // pour cela je dois faire une fonction "loadTache" qui va aller chercher les taches dans la Base de Données
-const todoEl = document.querySelector("#tasks");
+const zoneReponse = document.querySelector("#tasks");
 function loadTache() {
   // connection à la base de données avec un fetch
   const url = "http://localhost:3000/tache";
@@ -36,14 +35,17 @@ function loadTache() {
     .then((response) => response.json())
     .then((response) => {
       response.forEach((tache) => {
-        const divEl = document.createElement("div");
-        divEl.style.border = "1px solid black"
-        const h3El = document.createElement("h3");
-        const pEl = document.createElement("p");
-        h3El.textContent = tache.tacheTitre;
-        pEl.textContent = tache.tacheContent;
-        divEl.appendChild(h3El, pEl);
-        todoEl.appendChild(divEl);
+        const newDiv = document.createElement("div");
+        newDiv.style.border = "1px solid black";
+        newDiv.style.borderRadius = "10px"; // Ajout du border-radius
+        newDiv.style.margin = "10px"; // Ajout du margin
+        const newHtrois = document.createElement("h3");
+        const newP = document.createElement("p");
+        newHtrois.textContent = tache.tacheTitre;
+        newP.textContent = tache.tacheContent;
+        newDiv.appendChild(newHtrois);
+        newDiv.appendChild(newP)
+        zoneReponse.appendChild(newDiv);
 
         console.log(tache.tacheContent);
       });
