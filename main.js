@@ -27,17 +27,20 @@ formEL.addEventListener("submit", (event) => {
 // je veu aller chercher les taches qui sont dans la base de données et les afficher dans le html
 // pour cela je dois faire une fonction "loadTache" qui va aller chercher les taches dans la Base de Données
 // const zoneRep = document.querySelector("#taskForm")
-function loadTache(response) {
+function loadTache() {
   // connection à la base de données avec un fetch
-  const url = fetch("http://localhost:3000/tache")
-  
+  const url = "http://localhost:3000/tache";
+  fetch(url)
+  .then((response) => response.json())
+  // .then(data => console.log(data))
+  }
     // quand tu as fini(.then) la réponse(response) ensuite tu me fait une fonction(=>) une response en json(response.json)
-    .then((response) => response.json())
+    // 
     // quand tu as fini(.then) cette response, ensuite tu me fait une fonction(=>) la fonction viewTache de response que je vais concevoir après
-    .then((response) => viewTache(response))
+    // .then((response) => viewTache(response))
     // tu "catch" l'erreur(error) ensuite tu me fait une fonction alert avec le texte "erreur : " vuivi du code de error
-    .catch((error) => alert("erreur : " + error));
-}
+    // .catch((error) => alert("erreur : " + error));
+
 
 //1) quand tu as fini tu met en place une fonction "viewTache"
 function viewTache(response) {
