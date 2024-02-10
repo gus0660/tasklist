@@ -32,7 +32,18 @@ function loadTache() {
   const url = "http://localhost:3000/tache";
   fetch(url)
   .then((response) => response.json())
-  // .then(data => console.log(data))
+  .then(response => {
+    response.forEach(data => {
+      const divEl = document.createElement("div")
+      const h3El = document.createElement("h3")
+      const pEl = document.createElement("p")
+
+      console.log(data)
+    })
+    
+    
+  //  .then(data => console.log(response.tacheTitre))
+    })
   }
     // quand tu as fini(.then) la réponse(response) ensuite tu me fait une fonction(=>) une response en json(response.json)
     // 
@@ -68,4 +79,3 @@ function viewTache(response) {
 //4) Créer des éléments pour afficher les détails de la tâche
 //5) Ajouter les éléments à la div de la tâche
 //6) Ajouter la div de la tâche à la div des tâches
-//   .then((response) => console.log(response))
