@@ -26,10 +26,11 @@ formEL.addEventListener("submit", (event) => {
 
 // je veu aller chercher les taches qui sont dans la base de données et les afficher dans le html
 // pour cela je dois faire une fonction "loadTache" qui va aller chercher les taches dans la Base de Données
-const zoneRep = document.querySelector("#taskForm")
+// const zoneRep = document.querySelector("#taskForm")
 function loadTache(response) {
   // connection à la base de données avec un fetch
-  fetch("http://localhost:3000/tache")
+  const url = fetch("http://localhost:3000/tache")
+  
     // quand tu as fini(.then) la réponse(response) ensuite tu me fait une fonction(=>) une response en json(response.json)
     .then((response) => response.json())
     // quand tu as fini(.then) cette response, ensuite tu me fait une fonction(=>) la fonction viewTache de response que je vais concevoir après
