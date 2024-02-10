@@ -38,7 +38,20 @@ function loadTache(response) {
     .catch((error) => alert("erreur : " + error));
 }
 
-//1) quand tu as fini tu met en place une fonction "affichTache"
+//1) quand tu as fini tu met en place une fonction "viewTache"
+function viewTache(response) {
+  const zoneRep = document.querySelector("#taskForm")
+  response.forEach(task => {
+  
+  let newDiv = document.createElement("div");
+  let newHtrois = document.createElement("h3");
+  let newP = document.createElement("p");
+  newDiv.appendChild(newHtrois,newP);
+  newHtrois.textContent = task.tacheTitre;
+  newP.textContent = task.tacheContent;
+  zoneRep.appendChild(newDiv);
+  });
+}
 // .then(affichTache => {
 // const zoneReponse = document.querySelector("#tasks");
 //2) Parcourir les tâches récupérées
