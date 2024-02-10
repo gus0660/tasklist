@@ -37,6 +37,7 @@ function loadTache() {
     .then((response) => {
       response.forEach((tache) => {
         const divEl = document.createElement("div");
+        divEl.style.border = "1px solid black"
         const h3El = document.createElement("h3");
         const pEl = document.createElement("p");
         h3El.textContent = tache.tacheTitre;
