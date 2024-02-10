@@ -40,13 +40,13 @@ function loadTache(response) {
 
 
 //1) quand tu as fini tu met en place une fonction "affichTache"
-.then(affichTache => {
-    const zoneReponse = document.querySelector("#tasks");
+// .then(affichTache => {
+    // const zoneReponse = document.querySelector("#tasks");
 //2) Parcourir les tâches récupérées
-response.forEach(element => {
-    let newDiv = document.createElement("div");
-});
-} )   
+// response.forEach(element => {
+    // let newDiv = document.createElement("div");
+// });
+// })
 
 
 //3) Créer un élément div pour chaque tâche
