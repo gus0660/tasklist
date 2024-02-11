@@ -69,19 +69,19 @@ function loadTache() {
         newDiv.style.backgroundColor = "#42ecf5";
         const newHtrois = document.createElement("h3");
         const newP = document.createElement("p");
-        const boutSuprim = document.createElement("button");
-        boutSuprim.textContent = "suprimer"
+        const deleteBouton = document.createElement("button");
+        deleteBouton.textContent = "suprimer"
+        deleteBouton.addEventListener("click", function() {
+          deleteTache();
+        });
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
         newDiv.appendChild(newHtrois);
         newDiv.appendChild(newP);
-        newDiv.appendChild(boutSuprim)
+        newDiv.appendChild(deleteBouton)
         zoneReponse.appendChild(newDiv);
 
         
       });
     });
 }
-boutSuprim.addEventListener("click", () => {
-  
-})
