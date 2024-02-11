@@ -45,19 +45,7 @@ method: 'POST',
     console.error('Erreur lors de la requête:', error);
   });
 
-  // let newDiv = document.createElement("div");
-  // newDiv.style.border = "1px solid black";
-  // newDiv.style.borderRadius = "10px"; // Ajout du border-radius
-  // newDiv.style.margin = "10px"; // Ajout du margin
-  // newDiv.style.backgroundColor = "#42ecf5";
-  // let newHtrois = document.createElement("h3");
-  // let newP = document.createElement("p");
-  // newDiv.classList.add("newTache");
-  // newHtrois.textContent = titreAfaire;
-  // newP.textContent = contentAfaire;
-  // newDiv.appendChild(newHtrois);
-  // newDiv.appendChild(newP);
-  // zoneReponse.appendChild(newDiv);
+
 }
 loadTache();
 
