@@ -35,7 +35,7 @@ function postTache() {
   })
     // dés que la promesse est faite(.then de response) tu me fait la(ou les) fonctions :
     .then((response) => {
-      // SI la response est ok alors tu console.log 
+      // SI la response est ok alors tu console.log
       if (response.ok) {
         console.log("Tâche ajoutée avec succès !");
         // MAIS SURTOUT la div #tasks donc zoneReponse doit être vidée cela donne innerHTML = ""
@@ -59,7 +59,7 @@ loadTache();
 const zoneReponse = document.querySelector("#tasks");
 function loadTache() {
   // connection à la base de données avec un fetch
-  
+
   fetch("http://localhost:3000/tache")
     .then((response) => response.json())
     .then((response) => {
@@ -72,36 +72,34 @@ function loadTache() {
         const newHtrois = document.createElement("h3");
         const newP = document.createElement("p");
         const deleteBouton = document.createElement("button");
-        deleteBouton.textContent = "suprimer"
-        deleteBouton.addEventListener("click", function() {
+        deleteBouton.textContent = "suprimer";
+        deleteBouton.addEventListener("click", function () {
           deleteTache();
         });
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
         newDiv.appendChild(newHtrois);
         newDiv.appendChild(newP);
-        newDiv.appendChild(deleteBouton)
+        newDiv.appendChild(deleteBouton);
         zoneReponse.appendChild(newDiv);
-
-        
       });
     });
 }
 function deleteTache(idTache) {
   const url = "http://localhost:3000/tache/${idTache}";
   fetch(url, {
-    method: "DELETE"
+    method: "DELETE",
   })
-  .then(response => {
-    if (response.ok) {
-      console.log('Tâche supprimée avec succès !');
-      // Recharger les tâches après la suppression
-      loadTache();
-    } else {
-      console.log('Erreur lors de la suppression de la tâche.');
-    }
-  })
-  .catch(error => {
-    console.error('Erreur lors de la requête:', error);
-  });
+    .then((response) => {
+      if (response.ok) {
+        console.log("Tâche supprimée avec succès !");
+        // Recharger les tâches après la suppression
+        loadTache();
+      } else {
+        console.log("Erreur lors de la suppression de la tâche.");
+      }
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la requête:", error);
+    });
 }
