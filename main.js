@@ -33,7 +33,7 @@ function postTache() {
   })
     // dés que la promesse est faite(.then de response) tu me fait la(ou les) fonctions :
     .then((response) => {
-      
+      // SI la response est ok alors tu console.log 
       if (response.ok) {
         console.log("Tâche ajoutée avec succès !");
         zoneReponse.innerHTML = "";
