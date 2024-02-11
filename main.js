@@ -10,42 +10,42 @@ formEL.addEventListener("submit", (event) => {
 });
 //bon faut tout refaire pour envoyer la nouvelle tache dans la base de données
 
-
 function postTache() {
   const titreAfaire = document.querySelector("#taskTitle").value;
   const contentAfaire = document.querySelector("#taskContent").value;
   // après les 2 premieres const il faut créer une const qui sera en json donc entre acolades{} regroupant les objets à envoyer
-// ces objets se composent comme suit : (colonne de la table BD) (:) (const définie avec .value)
+  // ces objets se composent comme suit : (colonne de la table BD) (:) (const définie avec .value)
   const tacheData = {
     tacheTitre: titreAfaire,
-    tacheContent: contentAfaire
+    tacheContent: contentAfaire,
   };
   // connection à la base de données avec un fetch et une fonction
   fetch("http://localhost:3000/tache", {
-// on précise d'abord la méthode : 'POST'
-method: 'POST',
-// on décrit ensuite le type du header (en json {})
-//  'Content-Type': 'application/json' est une ligne qui indique au serveur que les données que vous envoyez sont au format JSON.
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  // JSON.stringify() prend un objet JavaScript et le transforme en une chaîne de texte JSON pour faciliter le partage ou le stockage des données.
-  body:JSON.stringify(tacheData)
+    // on précise d'abord la méthode : 'POST'
+    method: "POST",
+    // on décrit ensuite le type du header (en json {})
+    //  'Content-Type': 'application/json' est une ligne qui indique au serveur que les données que vous envoyez sont au format JSON.
+    headers: {
+      "Content-Type": "application/json",
+    },
+    // JSON.stringify() prend un objet JavaScript et le transforme en une chaîne de texte JSON pour faciliter le partage ou le stockage des données.
+    body: JSON.stringify(tacheData),
   })
-  .then(response => {
-    if (response.ok) {
-      console.log('Tâche ajoutée avec succès !');
-      zoneReponse.innerHTML = "";
-      // Réactualisation de l'affichage des tâches depuis la base de données
-      loadTache();
-    } else {
-      console.error('Erreur lors de l\'ajout de la tâche.');
-    }
-  })
-  .catch(error => {
-    console.error('Erreur lors de la requête:', error);
-  });
-
+    // dés que la promesse est faite(.then de response) tu me fait la(ou les) fonctions :
+    .then((response) => {
+      
+      if (response.ok) {
+        console.log("Tâche ajoutée avec succès !");
+        zoneReponse.innerHTML = "";
+        // Réactualisation de l'affichage des tâches depuis la base de données
+        loadTache();
+      } else {
+        console.error("Erreur lors de l'ajout de la tâche.");
+      }
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la requête:", error);
+    });
 }
 loadTache();
 
