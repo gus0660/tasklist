@@ -45,7 +45,7 @@ method: 'POST',
     console.error('Erreur lors de la requête:', error);
   });
 
-
+  suprimDivs();
 }
 loadTache();
 
@@ -76,6 +76,6 @@ function loadTache() {
       });
     });
 }
-function suprimForm() {
-  
+function suprimDivs() {
+  newDiv.remove();
 }
