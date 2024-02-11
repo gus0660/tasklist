@@ -41,6 +41,7 @@ function postTache() {
         // Réactualisation de l'affichage des tâches depuis la base de données
         loadTache();
       } else {
+        // sinon un log dans la console pour dire "Erreur lors de ect..."
         console.error("Erreur lors de l'ajout de la tâche.");
       }
     })
