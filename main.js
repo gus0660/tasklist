@@ -85,3 +85,8 @@ function loadTache() {
       });
     });
 }
+function deleteTache(idTache) {
+  fetch("http://localhost:3000/tache", {
+    method: "DELETE",
+  })
+}
