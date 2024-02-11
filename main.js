@@ -6,7 +6,7 @@
 const formEL = document.querySelector("#taskForm");
 formEL.addEventListener("submit", (event) => {
   event.preventDefault();
-  ajouTache();
+  loadTache();
 });
 //bon faut tout refaire pour envoyer la nouvelle tache dans la base de données
 
@@ -65,8 +65,8 @@ loadTache();
 const zoneReponse = document.querySelector("#tasks");
 function loadTache() {
   // connection à la base de données avec un fetch
-  const url = "http://localhost:3000/tache";
-  fetch(url)
+  // const url = "http://localhost:3000/tache";
+  fetch("http://localhost:3000/tache")
     .then((response) => response.json())
     .then((response) => {
       response.forEach((tache) => {
