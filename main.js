@@ -76,3 +76,6 @@ function loadTache() {
       });
     });
 }
+function suprimForm() {
+  
+}
