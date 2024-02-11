@@ -1,5 +1,7 @@
 // fonction pour afficher une nouvelle tache rentrée dans le input et l'afficher dans le html
 
+const { response } = require("express");
+
 // comme il faut commencer notre programme par une détection du click "submit", cela démarrera par un addEventListener au submit
 // comme cet evenement doit se produire sur un element javascript, il faut transformer l'element html ou se trouve le bouton
 // en variable javascript. donc ce bouton se trouve dans la div "taskForm" donc on commence par établir la variable formEl de "taskForm"
@@ -87,6 +89,13 @@ function loadTache() {
 }
 function deleteTache(idTache) {
   fetch("http://localhost:3000/tache", {
-    method: "DELETE",
+    method: "DELETE"
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Tâche supprimée avec succès !');
+      // Recharger les tâches après la suppression
+      loadTache();
+    }
   })
 }
