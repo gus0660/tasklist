@@ -6,7 +6,7 @@
 const formEL = document.querySelector("#taskForm");
 formEL.addEventListener("submit", (event) => {
   event.preventDefault();
-  loadTache();
+  postTache();
 });
 //bon faut tout refaire pour envoyer la nouvelle tache dans la base de données
 
