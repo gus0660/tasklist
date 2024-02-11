@@ -24,7 +24,8 @@ function postTache() {
   fetch("http://localhost:3000/tache", {
 // on précise d'abord la méthode : 'POST'
 method: 'POST',
-// on décrit ensuite le type du header (en json {}) et le body qui est un stringify de tacheData
+// on décrit ensuite le type du header (en json {})
+//  'Content-Type': 'application/json' est une ligne qui indique au serveur que les données que vous envoyez sont au format JSON.
   headers: {
     'Content-Type': 'application/json'
   },
