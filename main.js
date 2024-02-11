@@ -45,6 +45,7 @@ function postTache() {
         console.error("Erreur lors de l'ajout de la tâche.");
       }
     })
+    // si le FETCH échoue on peut attrapper(catch) l'erreur(error) générée et on peut console.log ou alert...
     .catch((error) => {
       console.error("Erreur lors de la requête:", error);
     });
