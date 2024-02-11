@@ -78,7 +78,7 @@ function loadTache() {
         newDiv.appendChild(boutSuprim)
         zoneReponse.appendChild(newDiv);
 
-        console.log(tache.tacheContent);
+        
       });
     });
 }
