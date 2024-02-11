@@ -77,10 +77,11 @@ function loadTache() {
         newDiv.appendChild(newP);
         newDiv.appendChild(boutSuprim)
         zoneReponse.appendChild(newDiv);
-boutSuprim.addEventListener("click", () => {
-  
-})
+
         
       });
     });
 }
+boutSuprim.addEventListener("click", () => {
+  
+})
