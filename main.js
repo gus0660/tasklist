@@ -69,10 +69,13 @@ function loadTache() {
         newDiv.style.backgroundColor = "#42ecf5";
         const newHtrois = document.createElement("h3");
         const newP = document.createElement("p");
+        const boutSuprim = document.createElement("button");
+        boutSuprim.textContent = "suprimer"
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
         newDiv.appendChild(newHtrois);
         newDiv.appendChild(newP);
+        newDiv.appendChild(boutSuprim)
         zoneReponse.appendChild(newDiv);
 
         console.log(tache.tacheContent);
