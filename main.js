@@ -35,6 +35,7 @@ method: 'POST',
   .then(response => {
     if (response.ok) {
       console.log('Tâche ajoutée avec succès !');
+      zoneReponse.innerHTML = "";
       // Réactualisation de l'affichage des tâches depuis la base de données
       loadTache();
     } else {
