@@ -36,6 +36,7 @@ function postTache() {
       // SI la response est ok alors tu console.log 
       if (response.ok) {
         console.log("Tâche ajoutée avec succès !");
+        // MAIS SURTOUT la div #tasks donc zoneReponse doit être vidée cela donne innerHTML = ""
         zoneReponse.innerHTML = "";
         // Réactualisation de l'affichage des tâches depuis la base de données
         loadTache();
