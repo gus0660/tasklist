@@ -96,6 +96,11 @@ function deleteTache(idTache) {
       console.log('Tâche supprimée avec succès !');
       // Recharger les tâches après la suppression
       loadTache();
+    } else {
+      console.log('Erreur lors de la suppression de la tâche.');
     }
   })
+  .catch(error => {
+    console.error('Erreur lors de la requête:', error);
+  });
 }
