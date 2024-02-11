@@ -57,7 +57,7 @@ loadTache();
 const zoneReponse = document.querySelector("#tasks");
 function loadTache() {
   // connection à la base de données avec un fetch
-  // const url = "http://localhost:3000/tache";
+  
   fetch("http://localhost:3000/tache")
     .then((response) => response.json())
     .then((response) => {
