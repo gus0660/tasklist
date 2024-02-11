@@ -88,7 +88,8 @@ function loadTache() {
     });
 }
 function deleteTache(idTache) {
-  fetch("http://localhost:3000/tache", {
+  const url = "http://localhost:3000/tache/${idTache}";
+  fetch(url, {
     method: "DELETE"
   })
   .then(response => {
