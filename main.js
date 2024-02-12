@@ -85,7 +85,7 @@ function loadTache() {
       });
     });
 }
-//${idTache}
+
 function deleteTache(idTache) {
   fetch('http://localhost:3000/tache/${idTache}', { 
     method: "DELETE",
