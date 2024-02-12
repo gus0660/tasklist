@@ -118,6 +118,9 @@ function gotoDoing(newDiv) {
   newDiv.remove();
   const boutAf = newDiv.querySelector(".boutonAfaire");
   boutAf.remove();
+  const boutonFait = document.createElement("button");
+  boutonFait.textContent = "Déplacer à Done";
+  newDiv.appendChild(boutonFait);
   // Ajouter la tâche à la div "#tasksDoing"
   const tasksDoing = document.querySelector("#tasksDoing");
   tasksDoing.appendChild(newDiv);
