@@ -73,7 +73,6 @@ function loadTache() {
         const newP = document.createElement("p");
         const deleteBouton = document.createElement("button");
         deleteBouton.textContent = "suprimer";
-        // deleteBouton.dataset.dataId= tache.idTache;
         deleteBouton.addEventListener("click", function () {
           deleteTache(tache.idTache);
         });
