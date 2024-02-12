@@ -15,7 +15,7 @@ formEL.addEventListener("submit", (event) => {
 function postTache() {
   const titreAfaire = document.querySelector("#taskTitle").value;
   const contentAfaire = document.querySelector("#taskContent").value;
-  // après les 2 premieres const il faut créer une const qui sera en json donc entre acolades{} regroupant les objets à envoyer
+  // après les 2 premieres const il faut créer une const qui sera en json donc entre accolades{} regroupant les objets à envoyer
   // ces objets se composent comme suit : (colonne de la table BD) (:) (const définie avec .value)
   const tacheData = {
     tacheTitre: titreAfaire,

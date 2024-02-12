@@ -23,7 +23,7 @@ db.connect((err) => {
 });
 // selectionne toute les taches
 app.get("/tache", (req, res) => {
-  db.query("SELECT * FROM tache", (err, results) => {
+  db.query("SELECT * FROM tache where status_idstatus = 1", (err, results) => {
     if (err) {
       res.status(500).send(err);
     } else {
@@ -78,7 +78,7 @@ app.get("/archivetache", (req, res) => {
 app.post("/tache", (req, res) => {
   //dans ma table (database) je demande une request"req" et une reponse"res"... je recois la "req" et j'emet une "res"
   const { tacheTitre, tacheContent } = req.body; //création de variable {tacheTitre et tacheContent} que je dois aller cherché dans le body de la request "req"? ENTRE {} veut dire que je veut du "json" et dans celui-ci je veu "tacheTitre et tacheContent"
-  const status_idStatus = 2; //creation de variable"status_idStatus" et qui établit la valeur par défaut "2" qui correspond à "à faire" dans la table "status"
+  const status_idStatus = 1; //creation de variable"status_idStatus" et qui établit la valeur par défaut "2" qui correspond à "à faire" dans la table "status"
   const isFinished = 0; //création de la constante "isFinished" définie par défaut à 0
   const query =
     "INSERT INTO `tache` (`tacheTitre`, `tacheContent`, `tacheDate`, `tacheFinished`, `status_idStatus`) VALUE (?, ?, NOW(), ?, ?)";
