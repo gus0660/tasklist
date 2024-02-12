@@ -52,8 +52,8 @@ function postTache() {
       console.error("Erreur lors de la requête:", error);
     });
 }
-loadTache();
 
+loadTache();
 // je veu aller chercher les taches qui sont dans la base de données et les afficher dans le html
 // pour cela je dois faire une fonction "loadTache" qui va aller chercher les taches dans la Base de Données
 const zoneReponse = document.querySelector("#tasks");
@@ -73,8 +73,9 @@ function loadTache() {
         const newP = document.createElement("p");
         const deleteBouton = document.createElement("button");
         deleteBouton.textContent = "suprimer";
+        // deleteBouton.dataset.dataId= tache.idTache;
         deleteBouton.addEventListener("click", function () {
-          deleteTache(idTache);
+          deleteTache(tache.idTache);
         });
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
@@ -87,7 +88,7 @@ function loadTache() {
 }
 
 function deleteTache(idTache) {
-  fetch('http://localhost:3000/tache/${idTache}', { 
+  fetch(`http://localhost:3000/tache/${idTache}`, { 
     method: "DELETE",
     
   })
