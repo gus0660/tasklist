@@ -72,15 +72,18 @@ function loadTache() {
         const newHtrois = document.createElement("h3");
         const newP = document.createElement("p");
         const deleteBouton = document.createElement("button");
+        const afaireBouton = document.createElement("button");
         deleteBouton.textContent = "suprimer";
         deleteBouton.addEventListener("click", function () {
           deleteTache(tache.idTache);
         });
+        afaireBouton.textContent = "A faire"
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
         newDiv.appendChild(newHtrois);
         newDiv.appendChild(newP);
         newDiv.appendChild(deleteBouton);
+        newDiv.appendChild(afaireBouton);
         zoneReponse.appendChild(newDiv);
       });
     });
