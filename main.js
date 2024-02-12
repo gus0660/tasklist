@@ -79,7 +79,7 @@ function loadTache() {
         });
         afaireBouton.textContent = "A faire";
         afaireBouton.addEventListener('click', () => {
-          changeTable()
+          gotoDoing(newDiv)
         })
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
@@ -109,4 +109,14 @@ function deleteTache(idTache) {
     .catch((error) => {
       console.error("Erreur lors de la requête:", error);
     });
+}
+// faire une fonction d'affichage 'gotoDoing' pour pouvoir déplacer une tache de la div "#tasks" à la div "#tasksDoing"
+// en cliquant sur le bouton 'A faire'
+function gotoDoing(newDiv) {
+  // Supprimer la tâche de la div "#tasks"
+  newDiv.remove();
+
+  // Ajouter la tâche à la div "#tasksDoing"
+  const tasksDoing = document.querySelector("#tasksDoing");
+  tasksDoing.appendChild(newDiv);
 }
