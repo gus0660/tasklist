@@ -74,7 +74,7 @@ function loadTache() {
         const deleteBouton = document.createElement("button");
         deleteBouton.textContent = "suprimer";
         deleteBouton.addEventListener("click", function () {
-          deleteTache();
+          deleteTache(idTache);
         });
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
@@ -85,10 +85,11 @@ function loadTache() {
       });
     });
 }
+//${idTache}
 function deleteTache(idTache) {
-  const url = "http://localhost:3000/tache/idTache";//${idTache}
-  fetch(url, {
+  fetch('http://localhost:3000/tache/${idTache}', { 
     method: "DELETE",
+    
   })
     .then((response) => {
       if (response.ok) {
