@@ -78,6 +78,7 @@ function loadTache() {
           deleteTache(tache.idTache);
         });
         afaireBouton.textContent = "A faire";
+        afaireBouton.className = "boutonAfaire";
         afaireBouton.addEventListener('click', () => {
           gotoDoing(newDiv)
         })
@@ -115,7 +116,8 @@ function deleteTache(idTache) {
 function gotoDoing(newDiv) {
   // Supprimer la tâche de la div "#tasks"
   newDiv.remove();
-
+  const boutAf = newDiv.querySelector(".boutonAfaire");
+  boutAf.remove();
   // Ajouter la tâche à la div "#tasksDoing"
   const tasksDoing = document.querySelector("#tasksDoing");
   tasksDoing.appendChild(newDiv);
