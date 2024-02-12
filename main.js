@@ -77,7 +77,10 @@ function loadTache() {
         deleteBouton.addEventListener("click", function () {
           deleteTache(tache.idTache);
         });
-        afaireBouton.textContent = "A faire"
+        afaireBouton.textContent = "A faire";
+        afaireBouton.addEventListener('click', () => {
+          changeTable()
+        })
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
         newDiv.appendChild(newHtrois);
