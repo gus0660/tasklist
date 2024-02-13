@@ -75,6 +75,8 @@ function loadTache() {
         newDiv.style.margin = "10px"; // Ajout du margin
         newDiv.style.backgroundColor = "#42ecf5";
         
+        
+
         deleteBouton.textContent = "suprimer";
         deleteBouton.addEventListener("click", function () {
           deleteTache(tache.idTache);
@@ -86,7 +88,7 @@ function loadTache() {
         })
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
-        
+
         newDiv.appendChild(newHtrois);
         newDiv.appendChild(newP);
         newDiv.appendChild(deleteBouton);
