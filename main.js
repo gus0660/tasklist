@@ -97,6 +97,8 @@ function loadTache() {
       });
     });
 }
+// bon il faut modifier la loadTache pour que suivant l'id-status la tache soie rangée automatiquement soit dans la div "tasks"
+// soit dans la div "doing" donc : if (id-status == 1)
 
 function deleteTache(idTache) {
   fetch(`http://localhost:3000/tache/${idTache}`, { 
