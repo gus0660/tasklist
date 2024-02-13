@@ -65,14 +65,16 @@ function loadTache() {
     .then((response) => {
       response.forEach((tache) => {
         const newDiv = document.createElement("div");
-        newDiv.style.border = "1px solid black";
-        newDiv.style.borderRadius = "10px"; // Ajout du border-radius
-        newDiv.style.margin = "10px"; // Ajout du margin
-        newDiv.style.backgroundColor = "#42ecf5";
         const newHtrois = document.createElement("h3");
         const newP = document.createElement("p");
         const deleteBouton = document.createElement("button");
         const afaireBouton = document.createElement("button");
+
+        newDiv.style.border = "1px solid black";
+        newDiv.style.borderRadius = "10px"; // Ajout du border-radius
+        newDiv.style.margin = "10px"; // Ajout du margin
+        newDiv.style.backgroundColor = "#42ecf5";
+        
         deleteBouton.textContent = "suprimer";
         deleteBouton.addEventListener("click", function () {
           deleteTache(tache.idTache);
@@ -84,6 +86,7 @@ function loadTache() {
         })
         newHtrois.textContent = tache.tacheTitre;
         newP.textContent = tache.tacheContent;
+        
         newDiv.appendChild(newHtrois);
         newDiv.appendChild(newP);
         newDiv.appendChild(deleteBouton);
